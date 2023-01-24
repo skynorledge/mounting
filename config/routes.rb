@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   get '/about' => "homes#about",as: "about"
 
   resources :admin, only: [:new,:create,:index,:show,:edit,:update,:destroy]
-  resources :customer, only: [:show, :edit, :update,:index,:destroy]
+
+  namespace :public do
+    resources :items, only: [:show,:index]
+  end
+
 end
