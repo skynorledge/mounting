@@ -6,18 +6,39 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :（姓） %><br />
-    <%#= f.last_name_field :last_name, autocomplete: "last_name" %>
+    <%= f.label :（姓） %>
+    <%= f.text_field :last_name, autocomplete: "last_name" %><br>
+
+    <%= f.label :（名） %>
+    <%= f.text_field :first_name, autocomplete: "first_name" %>
   </div>
 
   <div class="field">
-    <%= f.label :（名） %><br />
-    <%#= f.first_name_field :first_name, autocomplete: "first_name" %>
+    <%= f.label :（セイ） %>
+    <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %><br>
+
+    <%= f.label :（メイ） %>
+    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :郵便番号（ハイフンなし） %><br />
+    <%= f.text_field :postal_code, autocomplete: "postal_code" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :住所 %><br />
+    <%= f.text_field :address, autocomplete: "address",size: "70×35" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :電話番号（ハイフンなし） %><br />
+    <%= f.text_field :telephone_number, autocomplete: "telephone_number" %>
   </div>
 
   <div class="field">

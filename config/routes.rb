@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about' => "homes#about",as: "about"
 
-  resources :admin, only: [:new,:create,:index,:show,:edit,:update,:destroy]
+  namespace :admin do
+    resources :items, only: [:new,:show,:index,:edit,:create,:update]
+  end
 
   namespace :public do
     resources :items, only: [:show,:index]
