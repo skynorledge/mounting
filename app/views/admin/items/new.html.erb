@@ -1,20 +1,37 @@
 <center>
 
-  <h2>商品新規登録</h2>
+  <h3>商品新規登録</h3>
+
+  <br>
 
     <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
 
-      <p>商品画像</p>
-      <%= f.file_field :image, accept: "image/*" %>
+      <p>商品画像
+      <%= f.file_field :image, accept: "image/*" %></p>
 
-      <p>商品名</p>
-      <%= f.text_field :name %>
+      <br>
 
-      <p>商品説明</p>
-      <%= f.text_area :introduction,size: "30×30" %>
+      <p>商品名
+      <%= f.text_field :name %></p>
 
-      <p>税抜価格</p>
-      <%= f.text_field :price %>円
+      <br>
+
+      <p>商品説明
+      <%= f.text_area :introduction,size: "30×30" %></p>
+
+      <br>
+
+      <p>税抜価格
+      <%= f.text_field :price %>円</p>
+
+      <br>
+
+      <p>販売ステータス
+      <%= f.radio_button :is_active, "now_on_sale" %>
+      <%= f.label :is_active_now_on_sale, "販売中" %>
+
+      <%= f.radio_button :is_active, "suspension_of_sales" %>
+      <%= f.label :is_active_suspension_of_sales, "販売停止中" %></p>
 
       <br>
 
