@@ -5,7 +5,7 @@
     <div class = "col-md-3">
 
 
-    <h2>商品詳細</h2>
+    <h4>商品詳細</h4>
 
 
     <%= image_tag @item.image, size: "100×100" %>
@@ -18,7 +18,9 @@
             <tr>
               <th>商品名</th>
               <th>商品説明</th>
+              <th>ジャンル</th>
               <th>税抜価格</th>
+              <th>販売ステータス</th>
             </tr>
           </thead>
 
@@ -29,7 +31,11 @@
 
               <td><%= @item.introduction %></td>
 
+              <td><%#= @genre:id.name %></td>
+
               <td><%= @item.price %></td>
+
+              <td><%= @item.is_active %></td>
 
 
             </tr>
@@ -37,6 +43,6 @@
           </tbody>
         </table>
       </div>
-
+    </div>
   </div>
 </div>
