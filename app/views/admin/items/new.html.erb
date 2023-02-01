@@ -20,6 +20,9 @@
       <%= f.text_area :introduction,size: "30×30" %></p>
 
       <br>
+      
+      <p>ジャンル
+      <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></p>
 
       <p>税抜価格
       <%= f.text_field :price %>円</p>
