@@ -28,10 +28,31 @@ class Admin::ItemsController < ApplicationController
 
   end
 
+  def edit
+
+    @item = Item.find(params[:id])
+
+  end
+
+
+  def update
+
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.save
+
+    redirect_to admin_item_path(@item.id)
+    else
+      @items = Item.all
+      render :edit
+    end
+
+  end
+
 
   private
     def item_params
-      params.require(:item).permit(:image,:name,:introduction,:price)
+      params.require(:item).permit(:image,:name,:introduction,:price,:genre_id,:is_active)
     end
 
 end

@@ -5,13 +5,21 @@
     <div class = "col-md-3">
 
 
+
     <h4>商品詳細</h4>
 
 
-    <%= image_tag @item.image, size: "100×100" %>
+    <br>
 
 
-      <div class = "col-md-8">
+    <%= image_tag @item.image, width:150,height:150 %>
+
+    </div>
+
+
+      <div class = "col-md-8 offset-md-1">
+
+
 
         <table class = "table table-hover table-inverse">
           <thead>
@@ -31,7 +39,7 @@
 
               <td><%= @item.introduction %></td>
 
-              <td><%#= @genre:id.name %></td>
+              <td><%= @item.genre.name %></td>
 
               <td><%= @item.price %></td>
 
@@ -42,6 +50,11 @@
 
           </tbody>
         </table>
+
+        <div><%= link_to "編集する",edit_admin_item_path(@item.id), class:"btn btn-success" %></div>
+
+
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,10 @@
 class HomesController < ApplicationController
   def top
 
-    #@item = Item.find(params[:id])
+    @items = Item.all
+
+    #@public = Public.find(params[:id])
+
 
   end
 

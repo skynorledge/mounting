@@ -2,7 +2,7 @@ class Admin < ApplicationRecord
 
   has_one_attached :image
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
   def get_image

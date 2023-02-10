@@ -4,7 +4,7 @@
 <p>会員ではない方も商品の閲覧はできますが、</p>
 <p>購入には会員登録が必要になります。</p>
 
-      <div class = "col-md-8 offset-md-1">
+      <div class = "col">
 
         <h2>新着商品</h2>
 
@@ -19,18 +19,18 @@
 
           <tbody>
 
-          <%# @items.each do |item| %>
+          <% @items.each do |item| %>
 
             <tr>
               <td>
-                  <%#= image_tag item.image, size: "100×100" %>
+                  <%= image_tag item.image, width:150,height:150 %>
               </td>
 
-              <td><%#= item.name %></td>
+              <td><%= item.name %></td>
 
-              <td><%#= item.price %></td>
+              <td><%= item.price %></td>
             </tr>
-          <%# end %>
+          <% end %>
           </tbody>
         </table>
       </div>
