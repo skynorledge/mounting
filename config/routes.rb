@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
   end
 
+  get '/customers/mypage' => "public/customers#show"
+
 
 
 end

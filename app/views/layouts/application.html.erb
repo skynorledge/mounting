@@ -25,8 +25,14 @@
 
             <% if customer_signed_in? %>
 
+
+            <div style="text-align:center">
+              <%#= @item.name %>
+            </div>
+
             <li class="nav-item">
               <%= link_to "マイページ", "/", class: 'nav-link text-dark' %>
+              <%#= public_customer_path(@customer.id) %>
             </li>
 
             <li class="nav-item">

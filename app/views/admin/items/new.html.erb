@@ -30,10 +30,10 @@
       <br>
 
       <p>販売ステータス
-      <%= f.radio_button :is_active, "now_on_sale" %>
+      <%= f.radio_button :is_active,true %>
       <%= f.label :is_active_now_on_sale, "販売中" %>
 
-      <%= f.radio_button :is_active, "suspension_of_sales" %>
+      <%= f.radio_button :is_active,false %>
       <%= f.label :is_active_suspension_of_sales, "販売停止中" %></p>
 
       <br>

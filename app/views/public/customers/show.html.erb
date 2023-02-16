@@ -2,15 +2,12 @@
   <div class = "row">
 
 
-    <div class = "col-md-3">
+    <h4>マイページ</h4>
 
 
-    <h2>マイページ</h2>
+      <div class = "col">
 
-
-      <div class = "col-md-8 offset-md-1">
-
-        <h2>登録情報</h2>
+        <h4>登録情報</h4>
 
         <table class = "table table-hover table-inverse">
           <thead>
@@ -27,15 +24,17 @@
           <tbody>
 
             <tr>
-              <td><%= @public.last_name %><%= @public.first_name %></td>
+              <td><%= @customer.last_name %><%#= @customer.first_name %></td>
 
-              <td><%= @public.last_name_kana %><%= @public.first_name_kana %></td>
+              <td><%= @customer.last_name_kana %><%#= @customer.first_name_kana %></td>
 
-              <td><%= @public.postal_code %></td>
+              <td><%= @customer.postal_code %></td>
 
-              <td><%= @public.telephone_number %></td>
+              <td><%= @customer.address %></td>
 
-              <td><%= @public.email %></td>
+              <td><%= @customer.telephone_number %></td>
+
+              <td><%= @customer.email %></td>
 
 
             </tr>

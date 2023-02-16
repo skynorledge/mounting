@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  #before_action :public_state, only: [:create]
+
+
+
+
+
+  #protected
+
+  #def public_state
+    #@public = Public.find_by(email: params[:public][:email])
+    #return if !@public
+    #if @public.valid_password?(params[:public][:password])
+    #end
+
+  #end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

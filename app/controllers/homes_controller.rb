@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 
     @items = Item.all
 
-    #@public = Public.find(params[:id])
+    #@customer = Customer.find(params[:id])
 
 
   end
