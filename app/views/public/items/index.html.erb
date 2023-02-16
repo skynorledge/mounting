@@ -25,7 +25,7 @@
             <tr>
               <td><%= image_tag item.image, width:150,height:150 %></td>
 
-              <td><%= item.name %></td>
+              <td><%= link_to item.name,public_item_path(item.id) %></td>
 
               <td><%= item.price %></td>
 

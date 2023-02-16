@@ -10,7 +10,23 @@ Rails.application.routes.draw do
   }
 
   root to: 'homes#top'
+
   get '/about' => "homes#about",as: "about"
+
+  get '/orders/complete' => "homes#thanks"
+
+  get '/customers/mypage' => "public/customers#show"
+
+  get '/customers/info/edit' => "public/customers#edit"
+
+  get '/items' => "public/items#index"
+
+  get '/items/:id' => "public/items#show"
+
+  get '/customers/confirm' => 'public/customers#confirm'
+
+  patch '/customers/withdrawal' => 'public/customers#withdrawal'
+
 
   namespace :admin do
     root to: 'homes#top'
@@ -29,8 +45,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:new,:create,:index,:show]
     resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
   end
-
-  get '/customers/mypage' => "public/customers#show"
 
 
 

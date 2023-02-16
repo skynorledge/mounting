@@ -10,4 +10,8 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  def thanks
+  end
+
 end

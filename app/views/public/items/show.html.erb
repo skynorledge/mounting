@@ -1,0 +1,36 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+
+
+    <div class = "col-md-3">
+
+
+    <br>
+
+
+    <%= image_tag @item.image, width:150,height:150 %>
+
+    </div>
+
+
+      <div class = "col-md-8 offset-md-1">
+
+
+
+        <table class = "table">
+
+          <tr><th>商品名</th><td><%= @item.name %></td></tr>
+
+          <tr><th>商品紹介</th><td><%= @item.introduction %></td></tr>
+
+          <tr><th>価格</th><td><%= @item.price %>円</td></tr>
+
+
+        </table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

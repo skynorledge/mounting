@@ -1,5 +1,23 @@
 class Public::CustomersController < ApplicationController
 
+  #before_action :is_matching_login_user, only: [:edit]
+
+  def confirm
+
+    @customer = current_customer
+
+  end
+
+  def withdrawal
+
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+
+  end
+
   def show
 
     @customer = current_customer
@@ -9,13 +27,27 @@ class Public::CustomersController < ApplicationController
 
   def edit
 
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
 
   end
 
   def index
 
     @items = Item.all
+
+  end
+
+  def update
+
+    @customer = current_customer
+    @customer.update(customer_params)
+    if @customer.save
+
+    redirect_to customers_mypage_path
+    else
+      @items = Item.all
+      render :edit
+    end
 
   end
 

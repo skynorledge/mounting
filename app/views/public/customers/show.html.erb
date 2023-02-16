@@ -8,38 +8,23 @@
       <div class = "col">
 
         <h4>登録情報</h4>
+        <div><%= link_to "編集する",edit_public_customer_path(current_customer), class:"btn btn-success" %></div>
 
-        <table class = "table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th>氏名</th>
-              <th>カナ</th>
-              <th>郵便番号</th>
-              <th>住所</th>
-              <th>電話番号</th>
-              <th>メールアドレス</th>
-            </tr>
-          </thead>
+        <table class = "table">
 
-          <tbody>
+          <tr><th>氏名</th><td><%= @customer.last_name %><%= @customer.first_name %></td></tr>
 
-            <tr>
-              <td><%= @customer.last_name %><%#= @customer.first_name %></td>
+          <tr><th>カナ</th><td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td></tr>
 
-              <td><%= @customer.last_name_kana %><%#= @customer.first_name_kana %></td>
+          <tr><th>郵便番号</th><td><%= @customer.postal_code %></td></tr>
 
-              <td><%= @customer.postal_code %></td>
+          <tr><th>住所</th><td><%= @customer.address %></td></tr>
 
-              <td><%= @customer.address %></td>
+          <tr><th>電話番号</th><td><%= @customer.telephone_number %></td></tr>
 
-              <td><%= @customer.telephone_number %></td>
-
-              <td><%= @customer.email %></td>
+          <tr><th>メールアドレス</th><td><%= @customer.email %></td></tr>
 
 
-            </tr>
-
-          </tbody>
         </table>
 
         <p>配送先</p>

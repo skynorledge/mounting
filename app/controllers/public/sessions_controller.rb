@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  #before_action :public_state, only: [:create]
+  
+  before_action :customer_state, only: [:create]
 
+  protected
 
+  def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    return if !@customer
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+       redirect_to new_customer_registration_path
+    end
 
-
-
-  #protected
-
-  #def public_state
-    #@public = Public.find_by(email: params[:public][:email])
-    #return if !@public
-    #if @public.valid_password?(params[:public][:password])
-    #end
-
-  #end
+  end
 
   # before_action :configure_sign_in_params, only: [:create]
 

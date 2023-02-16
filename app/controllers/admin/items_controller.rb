@@ -32,6 +32,7 @@ class Admin::ItemsController < ApplicationController
 
     @item = Item.find(params[:id])
 
+
   end
 
 
@@ -41,7 +42,7 @@ class Admin::ItemsController < ApplicationController
     @item.update(item_params)
     if @item.save
 
-    redirect_to admin_item_path(@item.id)
+    redirect_to admin_items_path
     else
       @items = Item.all
       render :edit
