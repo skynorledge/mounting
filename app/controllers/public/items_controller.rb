@@ -5,6 +5,8 @@ class Public::ItemsController < ApplicationController
     @items = Item.all
     @item = Item.find(params[:id])
 
+    @cart_item = CartItem.new
+
   end
 
 

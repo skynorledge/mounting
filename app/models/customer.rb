@@ -1,5 +1,7 @@
 class Customer < ApplicationRecord
 
+  has_many :cart_items, dependent: :destroy
+
   has_one_attached :image
 
   devise :database_authenticatable, :registerable,
