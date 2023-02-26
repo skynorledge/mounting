@@ -7,7 +7,10 @@
     <h4>ショッピングカート</h4>
 
 
-    <br>
+    <br>&emsp;&emsp;&emsp;
+
+
+    <%= button_to "カートを空にする", cart_items_remove_path,class:"btn btn-danger", method: :delete %>
 
 
     <%#= image_tag @item.image, width:150,height:150 %>
@@ -46,8 +49,7 @@
 
               <td><%= cart_item.item.price %></td>
 
-              <td><%#= link_to "削除する",book_path(@book.id), class:"btn btn-danger", method: :delete,
-              "data-confirm" => "本当に消しますか？" %></td>
+              <td><%= link_to "削除する",public_cart_item_path(cart_item.id), class:"btn btn-danger", method: :delete %></td>
 
               <% @total +=  (cart_item.item.price) * cart_item.amount %>
 
@@ -59,7 +61,7 @@
         </table>
 
         <div><%= link_to "買い物を続ける", "/" , class:"btn btn-primary" %>
-        <%= @total %></div>
+        合計金額<%= @total %></div>
 
 
 

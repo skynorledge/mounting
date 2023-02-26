@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/customers/confirm' => 'public/customers#confirm'
 
   patch '/customers/withdrawal' => 'public/customers#withdrawal'
+  
+  delete '/cart_items/remove' => "public/cart_items#destroy_all"
 
 
   namespace :admin do
