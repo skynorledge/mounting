@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  
+
   def new
 
     @order = Order.new
@@ -7,6 +7,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+
+    @order = Order.new(order_params)
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.address
+    @order.name = current_customer.first_name + current_customer.last_name
 
   end
 
@@ -21,7 +26,7 @@ class Public::OrdersController < ApplicationController
 
     @order.save
 
-    redirect_to admin_item_path(@item)
+    redirect_to orders_confirm_path
 
   end
 
@@ -40,21 +45,21 @@ class Public::OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:customer_id,:postal_code,:address,:name,
+      params.require(:order).permit(:address_id,:customer_id,:postal_code,:address,:name,
       :shipping_cost,:total_payment,:payment_method,:status)
     end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
