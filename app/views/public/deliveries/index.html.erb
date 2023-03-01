@@ -38,6 +38,7 @@
               <th>郵便番号</th>
               <th>住所</th>
               <th>宛名</th>
+              <th colspan="1"></th>
             </tr>
           </thead>
 
@@ -48,9 +49,12 @@
             <tr>
               <td><%= delivery.postal_code %></td>
 
-              <td></td>
+              <td><%= delivery.address %></td>
 
-              <td></td>
+              <td><%= delivery.name %></td>
+
+              <td><%= link_to "編集する",edit_public_delivery_path(delivery.id), class:"btn btn-success" %>
+              <%= link_to "削除する",public_delivery_path(delivery.id), class:"btn btn-danger",method: :delete,"data-confirm" => "本当に消しますか？" %></td>
 
 
             </tr>
