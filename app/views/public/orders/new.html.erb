@@ -1,0 +1,33 @@
+<center>
+
+  <h4>注文情報入力</h4>
+
+  <br>
+
+    <%= form_with model: @order, url: '/orders/confirm', method: :post do |f| %>
+
+      <h4>支払方法</h4>
+
+      <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+      <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+
+      <br>
+
+      <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+      <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %>
+
+      <br>
+
+      <h4>お届け先</h4>
+
+      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+
+      <br>
+
+
+
+    <%= f.submit '確認画面へ進む' ,class:"btn btn-primary" %>
+
+    <% end %>
+
+</center>

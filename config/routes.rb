@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/orders/complete' => "homes#thanks"
 
+  get '/orders/confirm' => 'public/orders#confirm'
+
   get '/customers/mypage' => "public/customers#show"
 
   get '/customers/info/edit' => "public/customers#edit"
@@ -26,7 +28,7 @@ Rails.application.routes.draw do
   get '/customers/confirm' => 'public/customers#confirm'
 
   patch '/customers/withdrawal' => 'public/customers#withdrawal'
-  
+
   delete '/cart_items/remove' => "public/cart_items#destroy_all"
 
 
