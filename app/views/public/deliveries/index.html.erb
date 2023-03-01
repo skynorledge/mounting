@@ -1,0 +1,65 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row justify-content-md-center">
+
+
+
+    <h4>配送先登録/一覧</h4>
+
+
+  　<br>
+
+    <%= form_with model: @delivery, url: '/public/deliveries', method: :post do |f| %>
+
+      <p>郵便番号
+      <%= f.text_field :postal_code %></p>
+
+      <br>
+
+      <p>住所
+      <%= f.text_field :address %></p>
+
+      <br>
+
+      <p>宛名
+      <%= f.text_field :name %></p>
+
+      <br>
+
+    <%= f.submit '新規登録' ,class:"btn btn-success" %>
+
+    <% end %>
+
+
+      <div class = "col">
+
+        <table class = "table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>郵便番号</th>
+              <th>住所</th>
+              <th>宛名</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <% @deliveries.each do |delivery| %>
+
+            <tr>
+              <td><%= delivery.postal_code %></td>
+
+              <td></td>
+
+              <td></td>
+
+
+            </tr>
+
+            <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
