@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/orders/complete' => "homes#thanks"
 
-  get '/orders/confirm' => 'public/orders#confirm'
+  post '/orders/confirm' => 'public/orders#confirm'
 
   get '/customers/mypage' => "public/customers#show"
 
