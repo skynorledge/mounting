@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
 
+  #before_action :is_matching_login_customer
 
   def create
 
@@ -54,5 +55,13 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
       params.require(:cart_item).permit(:item_id, :amount)
   end
+
+
+  #def is_matching_login_customer
+    #customer_id = params[:id].to_i
+    #unless customer_id == current_customer.id
+      #redirect_to new_customer_registration_path
+    #end
+  #end
 
 end

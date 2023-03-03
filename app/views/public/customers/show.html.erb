@@ -10,7 +10,7 @@
         <h4>登録情報</h4>
       </div>
       <div class = "col-md-10">
-        <div><%= link_to "編集する",edit_public_customer_path(current_customer), class:"btn btn-success btn-sm" %></div>
+        <div><%= link_to "編集する",customers_info_edit_path(current_customer), class:"btn btn-success btn-sm" %></div>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
             <h4>配送先</h4>
           </div>
           <div class = "col-md-10">
-            <%= link_to "一覧を見る",public_deliveries_path,class:"btn btn-primary btn-sm" %>
+            <%= link_to "一覧を見る",deliveries_path,class:"btn btn-primary btn-sm" %>
           </div>
         </div>
 

@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
 
+  #before_action :is_matching_login_customer
+
   def new
 
     @order = Order.new
@@ -27,7 +29,7 @@ class Public::OrdersController < ApplicationController
     end
 
     @cart_items = CartItem.all
-    
+
     :shipping_cost == 800.to_i
 
   end
@@ -66,17 +68,12 @@ class Public::OrdersController < ApplicationController
       :shipping_cost,:total_payment,:payment_method,:status)
     end
 
-
-
-
-
-
-
-
-
-
-
-
+  #def is_matching_login_customer
+    #customer_id = params[:id].to_i
+    #unless customer_id == current_customer.id
+      #redirect_to new_customer_registration_path
+    #end
+  #end
 
 
 end

@@ -1,6 +1,6 @@
 class Public::DeliveriesController < ApplicationController
 
-  #before_action :is_matching_login_user, only: [:edit]
+  #before_action :is_matching_login_customer
 
   def create
 
@@ -52,11 +52,10 @@ class Public::DeliveriesController < ApplicationController
     end
 
 
-  #def is_matching_login_user
-    #delivery = Address.find(params[:id])
-    #login_cutomer_id = current_customer.id
-    #if(delivery.customer.id != login_customer_id)
-      #redirect_to public_deliveries_path
+  #def is_matching_login_customer
+    #customer_id = params[:id].to_i
+    #unless customer_id == current_customer.id
+      #redirect_to new_customer_registration_path
     #end
   #end
 

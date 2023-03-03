@@ -13,23 +13,50 @@ Rails.application.routes.draw do
 
   get '/about' => "homes#about",as: "about"
 
-  get '/orders/complete' => "homes#thanks"
-
-  post '/orders/confirm' => 'public/orders#confirm'
 
   get '/customers/mypage' => "public/customers#show"
 
   get '/customers/info/edit' => "public/customers#edit"
 
-  get '/items' => "public/items#index"
-
-  get '/items/:id' => "public/items#show"
+  patch '/customers' => 'public/customers#update'
 
   get '/customers/confirm' => 'public/customers#confirm'
 
   patch '/customers/withdrawal' => 'public/customers#withdrawal'
 
+
+  get '/cart_items' => 'public/cart_items#index'
+
+  patch '/cart_items/:id' => 'public/cart_items#update'
+
+  #delete '/cart_items/:id/remove' => "public/cart_items#destroy"
+
   delete '/cart_items/remove' => "public/cart_items#destroy_all"
+
+
+  get '/orders/new' => "public/orders#new"
+
+  post '/orders/confirm' => 'public/orders#confirm'
+
+  get '/orders/complete' => "public/orders#complete"
+
+  get '/orders' => "public/orders#index"
+
+  get '/orders/:id' => "public/orders#show"
+
+
+  get '/deliveries' => "public/deliveries#index"
+
+  get '/deliveries/:id/edit', to: "public/deliveries#edit"
+
+  #patch '/deliveries/:id' => "public/deliveries#update"
+
+  #delete '/deliveries/:id' => "public/deliveries#destroy"
+
+
+  get '/items' => "public/items#index"
+
+  get '/items/:id' => "public/items#show"
 
 
   namespace :admin do
