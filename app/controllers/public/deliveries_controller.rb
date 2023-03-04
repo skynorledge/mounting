@@ -1,6 +1,6 @@
 class Public::DeliveriesController < ApplicationController
 
-  #before_action :is_matching_login_customer
+  before_action :authenticate_customer!
 
   def create
 

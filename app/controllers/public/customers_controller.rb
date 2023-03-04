@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
 
-  #before_action :is_matching_login_customer, only: [:confirm,:edit,:withdrawal,:show,:index,:update]
+  before_action :authenticate_customer!
 
   def confirm
 

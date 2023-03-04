@@ -11,52 +11,60 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+
+  scope module: :public do
+
+  #root to: 'homes#top'
+
   get '/about' => "homes#about",as: "about"
 
 
-  get '/customers/mypage' => "public/customers#show"
+  get '/customers/mypage' => "customers#show"
 
-  get '/customers/info/edit' => "public/customers#edit"
+  get '/customers/info/edit' => "customers#edit"
 
-  patch '/customers' => 'public/customers#update'
+  patch '/customers' => 'customers#update'
 
-  get '/customers/confirm' => 'public/customers#confirm'
+  get '/customers/confirm' => 'customers#confirm'
 
-  patch '/customers/withdrawal' => 'public/customers#withdrawal'
-
-
-  get '/cart_items' => 'public/cart_items#index'
-
-  patch '/cart_items/:id' => 'public/cart_items#update'
-
-  #delete '/cart_items/:id/remove' => "public/cart_items#destroy"
-
-  delete '/cart_items/remove' => "public/cart_items#destroy_all"
+  patch '/customers/withdrawal' => 'customers#withdrawal'
 
 
-  get '/orders/new' => "public/orders#new"
+  get '/cart_items' => 'cart_items#index'
 
-  post '/orders/confirm' => 'public/orders#confirm'
+  patch '/cart_items/:id' => 'cart_items#update'
 
-  get '/orders/complete' => "public/orders#complete"
+  delete '/cart_items/:id/remove' => "cart_items#destroy"
 
-  get '/orders' => "public/orders#index"
-
-  get '/orders/:id' => "public/orders#show"
+  delete '/cart_items/remove' => "cart_items#destroy_all"
 
 
-  get '/deliveries' => "public/deliveries#index"
+  get '/orders/new' => "orders#new"
 
-  get '/deliveries/:id/edit', to: "public/deliveries#edit"
+  post '/orders/confirm' => 'orders#confirm'
 
-  #patch '/deliveries/:id' => "public/deliveries#update"
+  get '/orders/complete' => "orders#complete"
 
-  #delete '/deliveries/:id' => "public/deliveries#destroy"
+  get '/orders' => "orders#index"
+
+  get '/orders/:id' => "orders#show"
 
 
-  get '/items' => "public/items#index"
+  get '/deliveries' => "deliveries#index"
 
-  get '/items/:id' => "public/items#show"
+  get '/deliveries/:id/edit' => "deliveries#edit"
+
+  patch '/deliveries/:id' => "deliveries#update"
+
+  delete '/deliveries/:id' => "deliveries#destroy"
+
+  resources :items, only: [:show,:index]
+  resources :customers, only: [:show,:edit,:update]
+  resources :cart_items, only: [:update,:index,:destroy,:create]
+  resources :orders, only: [:new,:create,:index,:show]
+  resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
+
+  end
 
 
   namespace :admin do
@@ -67,14 +75,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:show,:index,:edit,:update]
     resources :orders, only: [:show,:update]
     resources :order_items, only: [:update]
-  end
-
-  namespace :public do
-    resources :items, only: [:show,:index]
-    resources :customers, only: [:show,:edit,:update]
-    resources :cart_items, only: [:update,:index,:destroy,:create]
-    resources :orders, only: [:new,:create,:index,:show]
-    resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
   end
 
 

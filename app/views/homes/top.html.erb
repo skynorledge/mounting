@@ -1,40 +1,58 @@
-<p id = "notice"></p>
+<!--<center>-->
+<!--<p>ようこそ、ながのCAKEへ！</p>-->
+<!--<p>このサイトは、ケーキ販売のECサイトになります。</p>-->
+<!--<p>会員ではない方も商品の閲覧はできますが、</p>-->
+<!--<p>購入には会員登録が必要になります。</p>-->
+<!--</center>-->
 
-<center>
-<p>ようこそ、ながのCAKEへ！</p>
-<p>このサイトは、ケーキ販売のECサイトになります。</p>
-<p>会員ではない方も商品の閲覧はできますが、</p>
-<p>購入には会員登録が必要になります。</p>
+<div class = "container">
 
-      <div class = "col">
+  <!--<div class = "row mt-3 mb-3">-->
 
-        <h2>新着商品</h2>
+    <!--<div>ようこそ、ながのCAKEへ！</div>-->
+　  <!--<div>このサイトは、ケーキ販売のECサイトになります。</div>-->
+    <!--<div>会員ではない方も商品の閲覧はできますが、</div>-->
+    <!--<div>購入には会員登録が必要になります。</div>-->
 
-        <table class = "table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th colspan="1"></th>
-              <th colspan="1"></th>
-              <th colspan="1"></th>
-            </tr>
-          </thead>
+  <!--</div>-->
 
-          <tbody>
+  <div class = "row mt-3 mb-3">
+    <div class = "col">
+      <h4>新着商品</h4>
+    </div>
+  </div>
 
-          <% @items.each do |item| %>
 
-            <tr>
-              <td>
-                  <%= image_tag item.image, width:150,height:150 %>
-              </td>
+    <div class = "row mt-3 mb-3">
 
-              <td><%= link_to item.name,public_item_path(item.id) %></td>
+      <% @items.each do |item| %>
 
-              <td><%= item.price %></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
+        <div class = "col-md-3">
 
-</center>¥
+          <table class = "table table-borderless">
+            <thead>
+              <tr>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td><%= image_tag item.image, width:150,height:150 %><br>
+                <%= link_to item.name,item_path(item.id) %><br>
+                <%= item.price %></td>
+
+              </tr>
+
+             </tbody>
+          </table>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+</div>
