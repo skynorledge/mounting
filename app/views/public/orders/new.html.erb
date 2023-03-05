@@ -22,7 +22,8 @@
 
       <p><%= f.radio_button :select_address,"0" %>
       <%= f.label :address_mine, "ご自身の住所" %>
-      <%= current_customer.postal_code %><%= current_customer.address%></p>
+      <%= current_customer.postal_code %><%= current_customer.address%>
+      <%= current_customer.last_name %><%= current_customer.first_name %></p>
 
 
       <p>

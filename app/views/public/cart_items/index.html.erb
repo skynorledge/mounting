@@ -38,9 +38,9 @@
 
               <td><%= cart_item.amount %></td>
 
-              <td><%= cart_item.item.price %></td>
+              <td><%= cart_item.item.price * cart_item.amount %></td>
 
-              <td style="text-align: center;"><%= link_to "削除する",public_cart_item_path(cart_item.id), class:"btn btn-danger btn-sm", method: :delete %></td>
+              <td style="text-align: center;"><%= link_to "削除する",cart_item_path(cart_item.id), class:"btn btn-danger btn-sm", method: :delete %></td>
 
               <% @total +=  (cart_item.item.price) * cart_item.amount %>
 
@@ -66,7 +66,7 @@
 
   <div class = "mx-auto">
     <div class = "col">
-      <div><%= link_to "情報入力に進む", orders_new_path , class:"btn btn-success" %></div>
+      <div><%= link_to "情報入力に進む", new_order_path , class:"btn btn-success" %></div>
     </div>
   </div>
 </div>

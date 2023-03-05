@@ -23,40 +23,40 @@ Rails.application.routes.draw do
 
   get '/customers/info/edit' => "customers#edit"
 
-  patch '/customers' => 'customers#update'
+  #patch '/customers' => 'customers#update'
 
   get '/customers/confirm' => 'customers#confirm'
 
   patch '/customers/withdrawal' => 'customers#withdrawal'
 
 
-  get '/cart_items' => 'cart_items#index'
+  #get '/cart_items' => 'cart_items#index'
 
-  patch '/cart_items/:id' => 'cart_items#update'
+  #patch '/cart_items/:id' => 'cart_items#update'
 
-  delete '/cart_items/:id/remove' => "cart_items#destroy"
+  #delete '/cart_items/:id/remove' => "cart_items#destroy"
 
   delete '/cart_items/remove' => "cart_items#destroy_all"
 
 
-  get '/orders/new' => "orders#new"
+  #get '/orders/new' => "orders#new"
 
   post '/orders/confirm' => 'orders#confirm'
 
   get '/orders/complete' => "orders#complete"
 
-  get '/orders' => "orders#index"
+  #get '/orders' => "orders#index"
 
-  get '/orders/:id' => "orders#show"
+  #get '/orders/:id' => "orders#show"
 
 
-  get '/deliveries' => "deliveries#index"
+  #get '/deliveries' => "deliveries#index"
 
-  get '/deliveries/:id/edit' => "deliveries#edit"
+  #get '/deliveries/:id/edit' => "deliveries#edit"
 
-  patch '/deliveries/:id' => "deliveries#update"
+  #patch '/deliveries/:id' => "deliveries#update"
 
-  delete '/deliveries/:id' => "deliveries#destroy"
+  #delete '/deliveries/:id' => "deliveries#destroy"
 
   resources :items, only: [:show,:index]
   resources :customers, only: [:show,:edit,:update]

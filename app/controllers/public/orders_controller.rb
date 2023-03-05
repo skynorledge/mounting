@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
 
-  #before_action :is_matching_login_customer
+  before_action :authenticate_customer!
 
   def new
 
@@ -26,6 +26,13 @@ class Public::OrdersController < ApplicationController
     elsif (params[:order][:select_address]) == "2"
       @order = Order.new(order_params)
       @order.save
+      @order.customer_id = current_customer.id
+      redirect_to orders_confirm_path
+
+    else
+      @order = Order.new(order_params)
+      render :confirm
+
     end
 
     @cart_items = CartItem.all
@@ -43,6 +50,8 @@ class Public::OrdersController < ApplicationController
 
     @order = Order.new(order_params)
 
+    @order.customer_id = current_customer.id
+
     @order.save
 
     redirect_to orders_complete_path
@@ -51,7 +60,7 @@ class Public::OrdersController < ApplicationController
 
   def show
 
-    #@order = Order.find(params[:id])
+    @order = Order.find(params[:id])
 
   end
 

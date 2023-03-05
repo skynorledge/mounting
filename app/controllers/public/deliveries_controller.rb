@@ -10,7 +10,7 @@ class Public::DeliveriesController < ApplicationController
 
     @delivery.save
 
-    redirect_to public_deliveries_path
+    redirect_to deliveries_path
 
   end
 
@@ -34,7 +34,7 @@ class Public::DeliveriesController < ApplicationController
 
     @delivery.save
 
-    redirect_to public_deliveries_path
+    redirect_to deliveries_path
 
   end
 
@@ -42,7 +42,7 @@ class Public::DeliveriesController < ApplicationController
   def destroy
     delivery = Address.find(params[:id])
     delivery.destroy
-    redirect_to public_deliveries_path
+    redirect_to deliveries_path
   end
 
 

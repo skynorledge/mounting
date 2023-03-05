@@ -44,8 +44,8 @@
 
               <td><%= delivery.name %></td>
 
-              <td><%= link_to "編集する",edit_public_delivery_path(delivery.id), class:"btn btn-success btn-sm" %>&emsp;
-              <%= link_to "削除する",public_delivery_path(delivery.id), class:"btn btn-danger btn-sm",method: :delete,"data-confirm" => "本当に消しますか？" %></td>
+              <td><%= link_to "編集する",edit_delivery_path(delivery.id), class:"btn btn-success btn-sm" %>&emsp;
+              <%= link_to "削除する",delivery_path(delivery.id), class:"btn btn-danger btn-sm",method: :delete,"data-confirm" => "本当に消しますか？" %></td>
 
 
             </tr>
