@@ -1,36 +1,38 @@
 <div class = "container">
 
-  <div class = "row mt-5 mb-5 justify-content-md-center">
+  <div class = "row mt-5 mb-3 justify-content-md-center">
 
-    <div class = "col-md-3">
+    <div class = "col-xs-3">
 
     <%= image_tag @item.image, width:250,height:200 %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
     </div>
 
     <%= form_with model: @cart_item,url:cart_items_path,method: :post do |f| %>
 
-    <div class = "col-md-9">
+    <div class = "col-xs-9">
 
-        <table class = "table table-bordered">
+        <ul class = "list-unstyled">
 
-          <tr><th><%= @item.name %></th><td></td></tr>
+          <li><strong><%= @item.name %></strong></li><br><br>
 
-          <tr><td><%= @item.introduction %></td></tr>
+          <li><%= @item.introduction %></li><br><br>
 
-          <tr><th><%= @item.price %>円</th><td></td></tr>
+          <li><%= "￥" %><%= @item.price %></li><br><br>
 
-          <tr><th><%= f.select :amount, *[1..10] %></th><td>
+          <li><%= f.select :amount, *[1..10] %></li><br><br>
 
           <%= f.hidden_field :item_id, :value => @item.id %>
 
-          <%= f.submit 'カートに入れる' ,class:"btn btn-success" %></td></tr>
-
-    <% end %>
-
-        </table>
+          <%= f.submit 'カートに入れる' ,class:"btn btn-success" %>
+          
+        </ul>
 
     </div>
+
+    <% end %>
+    
   </div>
 
 </div>

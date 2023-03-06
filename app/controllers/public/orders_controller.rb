@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
 
     else
       @order = Order.new(order_params)
-      render :confirm
+      render :new
 
     end
 
@@ -54,6 +54,26 @@ class Public::OrdersController < ApplicationController
 
     @order.save
 
+    current_customer.cart_items.each do |order|
+
+      order_item = OrderItem.new()
+
+      order_item.order_id = @order.id
+
+      order_item.item_id = order.item.id
+
+      order_item.price = order.item.price
+
+      order_item.quantity = order.amount
+
+      order_item.making_status = 0
+
+      order_item.save
+
+    end
+
+    current_customer.cart_items.destroy_all
+
     redirect_to orders_complete_path
 
   end
@@ -61,6 +81,28 @@ class Public::OrdersController < ApplicationController
   def show
 
     @order = Order.find(params[:id])
+
+    @customer = current_customer
+
+    @cart_items = CartItem.all
+
+    @orders = Order.all
+
+    #current_customer.cart_items.each do |order|
+
+      #order_item = OrderItem.new()
+
+      #order_item.order_id = @order.id
+
+      #order_item.item_id = order.item.id
+
+      #order_item.price = order.item.price
+
+      #order_item.quantity = order.amount
+
+      #order_item.save
+
+    #end
 
   end
 
@@ -80,13 +122,6 @@ class Public::OrdersController < ApplicationController
       params.require(:order).permit(:customer_id,:postal_code,:address,:name,
       :shipping_cost,:total_payment,:payment_method)
     end
-
-  #def is_matching_login_customer
-    #customer_id = params[:id].to_i
-    #unless customer_id == current_customer.id
-      #redirect_to new_customer_registration_path
-    #end
-  #end
 
 
 end

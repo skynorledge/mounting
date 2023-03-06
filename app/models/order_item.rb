@@ -6,15 +6,4 @@ class OrderItem < ApplicationRecord
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 end

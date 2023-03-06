@@ -25,11 +25,17 @@ class Public::CartItemsController < ApplicationController
 
     @cart_items = CartItem.all
     @customer = current_customer
+    #@numbers = @cart_item.amount
 
   end
 
   def update
+    
+    @cart_item.update(cart_item_params)
+    @customer.save
 
+    redirect_to cart_items_path
+    
   end
 
   def destroy

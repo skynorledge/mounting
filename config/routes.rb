@@ -11,12 +11,12 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+  get '/about' => "homes#about",as: "about"
+
 
   scope module: :public do
 
   #root to: 'homes#top'
-
-  get '/about' => "homes#about",as: "about"
 
 
   get '/customers/mypage' => "customers#show"
