@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
 
     elsif (params[:order][:select_address]) == "1"
       @address = Address.find(params[:order][:address_id])
@@ -25,9 +25,7 @@ class Public::OrdersController < ApplicationController
 
     elsif (params[:order][:select_address]) == "2"
       @order = Order.new(order_params)
-      @order.save
       @order.customer_id = current_customer.id
-      redirect_to orders_confirm_path
 
     else
       @order = Order.new(order_params)
@@ -52,6 +50,8 @@ class Public::OrdersController < ApplicationController
 
     @order.customer_id = current_customer.id
 
+    @order.status = 0
+
     @order.save
 
     redirect_to orders_complete_path
@@ -68,13 +68,17 @@ class Public::OrdersController < ApplicationController
 
     @orders = Order.all
 
+    @customer = current_customer
+
+    @cart_items = CartItem.all
+
   end
 
 
   private
     def order_params
       params.require(:order).permit(:customer_id,:postal_code,:address,:name,
-      :shipping_cost,:total_payment,:payment_method,:status)
+      :shipping_cost,:total_payment,:payment_method)
     end
 
   #def is_matching_login_customer
