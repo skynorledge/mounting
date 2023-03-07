@@ -22,7 +22,7 @@ class Admin::CustomersController < ApplicationController
 
     @customer = Customer.find(params[:id])
 
-    @customers = current_customer
+    #@customers = current_customer
 
   end
 
@@ -31,28 +31,27 @@ class Admin::CustomersController < ApplicationController
 
     @customer = Customer.find(params[:id])
 
-    @customers = current_customer
+    #@customers = current_customer
 
 
   end
 
   def index
-    
+
+    @customers = Customer.all
+
     @orders = Order.all
+
 
   end
 
   def update
 
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    if @customer.save
+    @customer.save
 
-    redirect_to customers_mypage_path
-    else
-      @items = Item.all
-      render :edit
-    end
+    redirect_to admin_customer_path
 
   end
 

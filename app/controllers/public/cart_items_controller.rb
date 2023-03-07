@@ -23,6 +23,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
 
+    @cart_items = current_customer.cart_items
     @cart_items = CartItem.all
     @customer = current_customer
     @numbers = [1,2,3,4,5,6,7,8,9,10]

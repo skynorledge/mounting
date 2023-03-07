@@ -1,7 +1,7 @@
 <div class = "container">
 
    <div class = "row mt-3 mb-3">
-     <h4>注文履歴詳細</h4>
+     <h5>注文履歴詳細</h5>
    </div>
 
     <div class = "row">
@@ -10,7 +10,7 @@
 
           <div class = "col-md-3 mb-3">
 
-            <div>注文情報</div>
+            <div class="font-weight-bold">注文情報</div>
 
             <tr><td>注文日</td><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
             <tr><td>配送先</td><td><%= "〒" %><%= @order.postal_code %><br>
@@ -22,7 +22,7 @@
 
           <div class = "col-md-5 mb-3">
 
-            <div>注文内容</div>
+            <div class="font-weight-bold">注文内容</div>
 
             <table class = "table table-bordered">
               <thead>
@@ -65,7 +65,7 @@
 
             <table class = "table table-bordered">
 
-            <div>請求情報</div>
+            <div class="font-weight-bold">請求情報</div>
 
             <tr><td>商品合計</td><td><%= @total %></td></tr>
             <tr><td>配送料</td><td><%= @order.shipping_cost %></td></tr>

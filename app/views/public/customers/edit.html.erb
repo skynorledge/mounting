@@ -2,7 +2,7 @@
 
   <div class = "row mt-3 mb-3">
 
-    <h4 class = "bg-info">会員情報編集</h4>
+    <h5>会員情報編集</h5>
 
   </div>
 
@@ -20,7 +20,7 @@
 
       <tr><th><%= f.label :郵便番号 %></th><td><%= f.text_field :postal_code, autocomplete: "postal_code" %></td></tr>
 
-      <tr><th> <%= f.label :住所 %></th><td><%= f.text_field :address, autocomplete: "address",size: "70×35" %></td></tr>
+      <tr><th><%= f.label :住所 %></th><td><%= f.text_field :address, autocomplete: "address",size: "70×35" %></td></tr>
 
       <tr><th><%= f.label :電話番号 %></th><td><%= f.text_field :telephone_number, autocomplete: "telephone_number" %></td></tr>
 

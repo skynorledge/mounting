@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-  
+
   before_action :authenticate_admin!
 
   def new
@@ -42,13 +42,9 @@ class Admin::ItemsController < ApplicationController
 
     @item = Item.find(params[:id])
     @item.update(item_params)
-    if @item.save
+    @item.save
 
-    redirect_to admin_items_path
-    else
-      @items = Item.all
-      render :edit
-    end
+    redirect_to admin_item_path(@item.id)
 
   end
 

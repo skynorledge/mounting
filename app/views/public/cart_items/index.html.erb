@@ -3,15 +3,13 @@
 
   <div class = "row mt-3 mb-3">
     <div class = "col-md-8">
-      <h4>ショッピングカート</h4>
+      <h5>ショッピングカート</h5>
     </div>
       <div class = "row">
         <div class = "col-md-4"></div>
           <%= button_to "カートを空にする", cart_items_remove_path,class:"btn btn-danger btn-sm", method: :delete %>
         </div>
   </div>
-
-  <%# if @cart_item.customer == current_customer %>
 
   <div class = "row mt-3 mb-3">
 
@@ -58,7 +56,6 @@
         </table>
 
   </div>
-  <%# end %>
 
   <div class = "row">
     <div class = "col-md-8">

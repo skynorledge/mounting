@@ -6,6 +6,8 @@ class Public::OrdersController < ApplicationController
 
     @order = Order.new
 
+    #@order = current_customer
+
   end
 
   def confirm
@@ -88,27 +90,13 @@ class Public::OrdersController < ApplicationController
 
     @orderitem = @order.order_items
 
-    #current_customer.cart_items.each do |order|
-
-      #order_item = OrderItem.new()
-
-      #order_item.order_id = @order.id
-
-      #order_item.item_id = order.item.id
-
-      #order_item.price = order.item.price
-
-      #order_item.quantity = order.amount
-
-      #order_item.save
-
-    #end
-
   end
 
   def index
 
-    @orders = current_customer.orders
+    @orders = Order.all
+
+    #@orders = current_customer.orders
 
     @cart_items = CartItem.all
 

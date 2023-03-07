@@ -1,22 +1,32 @@
-<div class = "container px-5 px-sm-0">
-  <div class = "row">
+<div class = "container">
 
 
-    <div class = "col-md-3">
+  <div class = "row mt-3 mb-3">
+　　<h5>ジャンル一覧・追加</h5>
+　</div>
 
+  <div class = "row mt-3 mb-3">
 
-　　<h4>ジャンル一覧・追加</h4>
+　  <!--<table class = "table table-sm table-borderless">-->
 
-　　<%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
+　　  <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
 
-　　<p>ジャンル名
-　　<%= f.text_field :name %><%= f.submit '新規登録' ,class:"btn btn-success" %></p>
+　　    <!--<tr><td>ジャンル名</td><td>-->
+　　    <div class = "col-md-8">ジャンル名</div>
+　　    <div class = "col-md-2"><%= f.text_field :name %></div>
+　　    <div class = "col-md-2"><%= f.submit '新規登録' ,class:"btn btn-success" %></div>
 
-　　<% end %>
+　　  <% end %>
 
-　　<div class = "col-md-8">
+  </div>
 
-        <table class = "table table-hover table-inverse">
+　  <!--</table>-->
+
+  <div class = "row mt-3 mb-3">
+
+　　<div class = "col-md-4">
+
+        <table class = "table">
           <thead>
             <tr>
               <th>ジャンル</th>
@@ -42,6 +52,9 @@
         </table>
     </div>
 
-    </div>
+    <div class = "col-md-4"></div>
+    <div class = "col-md-4"></div>
+
   </div>
+
 </div>

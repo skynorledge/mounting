@@ -22,7 +22,7 @@ class Public::DeliveriesController < ApplicationController
 
   def index
 
-    @deliveries = current_customer.addresses
+    @deliveries = Address.all
     @delivery = Address.new
 
 
