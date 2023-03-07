@@ -25,17 +25,18 @@ class Public::CartItemsController < ApplicationController
 
     @cart_items = CartItem.all
     @customer = current_customer
-    #@numbers = @cart_item.amount
+    @numbers = [1,2,3,4,5,6,7,8,9,10]
+
 
   end
 
   def update
-    
+
+    @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    @customer.save
 
     redirect_to cart_items_path
-    
+
   end
 
   def destroy

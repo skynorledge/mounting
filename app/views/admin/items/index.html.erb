@@ -1,16 +1,15 @@
-<div class = "container px-5 px-sm-0">
-  <div class = "row">
+<div class = "container">
 
+  <div class = "row mt-3 mb-3">
+    <h5>商品一覧</h5>
+  </div>
 
-    <h4>商品一覧</h4>
+  <div class = "row mt-3 mb-3">
 
-
-      <div class = "col">
-
-        <table class = "table table-hover table-inverse">
+        <table class = "table">
           <thead>
-            <tr>
-              <th>商品ID</th>
+            <tr class="table-active">
+              <th >商品ID</th>
               <th>商品名</th>
               <th>価格</th>
               <th>ジャンル</th>
@@ -23,7 +22,7 @@
             <% @items.each do |item| %>
 
             <tr>
-              <td><%= item.id %></td>
+              <td ><%= item.id %></td>
 
               <td><%= link_to item.name, admin_item_path(item.id)  %></td>
 
@@ -33,15 +32,13 @@
 
               <% if item.is_active == true %>
 
-              <td><%= "販売中" %></td>
+              <td class="text-success"><%= "販売中" %></td>
 
               <% else %>
 
-              <td><%= "販売停止中" %></td>
+              <td class="text-secondary"><%= "販売停止中" %></td>
 
               <% end %>
-
-
 
             </tr>
 
@@ -49,7 +46,7 @@
 
           </tbody>
         </table>
-      </div>
-    </div>
+
+
   </div>
 </div>

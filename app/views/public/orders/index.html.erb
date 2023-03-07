@@ -4,7 +4,9 @@
      <h4>注文履歴一覧</h4>
    </div>
 
-   <div class = "row mt-3 mb-3">
+  <%# if @order.customer == current_customer %>
+
+      <div class = "row mt-3 mb-3">
 
         <table class = "table table-bordered">
           <thead>
@@ -44,6 +46,7 @@
             </tr>
 
             <% end %>
+  <%# end %>
 
           </tbody>
         </table>

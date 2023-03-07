@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
 
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, except: [:show,:edit]
 
   def confirm
 
@@ -57,13 +57,6 @@ class Public::CustomersController < ApplicationController
       params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,
       :email,:encrypted_password,:postal_code,:address,:telephone_number)
     end
-
-  #def is_matching_login_customer
-    #customer_id = params[:id].to_i
-    #unless customer_id == current_customer.id
-      #redirect_to new_customer_registration_path
-    #end
-  #end
 
 
 

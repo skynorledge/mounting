@@ -86,7 +86,7 @@ class Public::OrdersController < ApplicationController
 
     @cart_items = CartItem.all
 
-    @orders = Order.all
+    @orderitem = @order.order_items
 
     #current_customer.cart_items.each do |order|
 
@@ -108,9 +108,7 @@ class Public::OrdersController < ApplicationController
 
   def index
 
-    @orders = Order.all
-
-    @customer = current_customer
+    @orders = current_customer.orders
 
     @cart_items = CartItem.all
 

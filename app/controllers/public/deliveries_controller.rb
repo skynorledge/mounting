@@ -6,7 +6,7 @@ class Public::DeliveriesController < ApplicationController
 
     @delivery = Address.new(address_params)
 
-    @delivery.customer_id = current_customer.id
+    @delivery.customer = current_customer
 
     @delivery.save
 
@@ -22,8 +22,9 @@ class Public::DeliveriesController < ApplicationController
 
   def index
 
-    @deliveries = Address.all
+    @deliveries = current_customer.addresses
     @delivery = Address.new
+
 
   end
 
