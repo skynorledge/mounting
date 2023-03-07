@@ -29,10 +29,6 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.customer_id = current_customer.id
 
-    else
-      @order = Order.new(order_params)
-      render :new
-
     end
 
     @cart_items = CartItem.all

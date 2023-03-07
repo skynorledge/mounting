@@ -37,7 +37,7 @@
 
               <li><%= f.radio_button :select_address,"1" %>
                 <%= f.label :address_done, "登録済住所から選択" %><br>
-                <% if @order.customer == current_customer %>
+                <% if current_customer %>
                 <li class=ml-3><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></li>
                 <% end %>
               </li>
@@ -61,8 +61,6 @@
                 <center><%= f.submit '確認画面へ進む' ,class:"btn btn-primary" %></center>
 
             </ul>
-
-          </li>
 
         </ul>
 
